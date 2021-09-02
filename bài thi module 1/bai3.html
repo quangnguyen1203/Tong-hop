@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bài 3</title>
+</head>
+<body>
+    <script>
+        class Employee{
+            constructor(name,age,addres,salary,totalWorkingHours) {
+                this.name = name;
+                this.age = age;
+                this.addres = addres;
+                this.salary = salary;
+                this.totalWorkingHours = totalWorkingHours;
+            }
+
+            inputWorkingHours(hours){
+                this.totalWorkingHours = hours;
+            }
+
+            printInfo(){
+                document.write(`Tên nhân viên: ${this.name}, tuổi: ${this.age}, địa chỉ: ${this.addres}, lương: ${this.salary}, giờ làm việc: ${this.totalWorkingHours} <br>`)
+            }
+            calculatorBonus(){
+                let bonus;
+                if (this.totalWorkingHours >= 200) {
+                    bonus = this.salary * 20/100;
+                }
+                else if (this.totalWorkingHours >= 100 && this.totalWorkingHours<200) {
+                    bonus = this.salary * 10/100;
+                }   else bonus = 0;
+                return bonus;
+            }
+        };
+        let quang = new Employee("Quang",18,"13 Nguyen Pham Tuan",100000,300);
+        quang.printInfo();
+        console.log(quang.calculatorBonus());
+    </script>
+</body>
+</html>

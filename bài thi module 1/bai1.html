@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bài 1</title>
+</head>
+<body>
+    <script>
+        // Hàm sinh ra số ngẫu nhiên
+        function generateArray(size, min, max) {
+            var arr = [];
+            for (let i = 0; i <= size; i++) {
+            arr.push(Math.floor(Math.random() *(max - min + 1) + min));
+            }
+            return arr;
+        }
+        
+        // Hiển thị các phần tử trong mảng cách nhau bởi dấu -
+        function printArray(arr) {
+            let print = arr.join("-");
+            return print;
+        }
+        // kiểm tra số có phải là số nguyên tố hay không
+        function isPrime(number) {
+            if (number >= 2) {
+            let count = 0;
+            for (let i = 2; i <= number - 1; i++) {
+                if (number % i == 0) {
+                count++;
+                break;
+                }
+            }
+            if (count == 0) {
+                return true;
+            } else {
+                return false;
+            }
+            } else {
+            return false;
+            }
+        }
+
+        //Hiển thị các số nguyên tố trong mảng
+        function printPrimes(arr) {
+            let arrnew = [];
+            for (let i = 0; i < arr.length; i++) {
+                number = arr[i];
+                if (isPrime(number) == true) {
+                    arrnew.push(number);
+                }
+            }
+            return arrnew;
+        }
+        //Tính tổng các số nguyên tố trong mảng
+        function sumPrimes(arr) {
+            let sum = 0;
+            for (let i = 0; i < arr.length; i++) {
+                number = arr[i];
+                if (isPrime(number) == true) {
+                    sum += arr[i];
+                }
+            }
+            return sum;
+        }
+        //Hàm kiểm tra số nguyên dương
+        function inputInterger(msg) {
+            let number = 0;
+            do {
+                number = Number(prompt(msg));
+            } while (isNaN(number) || !Number.isInteger(number) || number <= 0);
+            return number;
+        }
+        function main() {
+            let size = inputInterger("Input value size: ");
+            let min = inputInterger("Input value min: ");
+            let max = inputInterger("Input value max: ");
+            arr = generateArray(size,min,max);
+        }
+        let arr;
+        main();
+        document.write(arr + "<br>");
+        document.write("Danh sách các số nguyên tố có trong mảng là: " + printPrimes(arr) + "<br>");
+        document.write("Tổng các số nguyên tố trong mảng là : " + sumPrimes(arr) + "<br>")
+    </script>
+</body>
+</html>
